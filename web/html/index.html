@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Usuário</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../css/normalize.css">
+		<link rel="stylesheet" href="../css/default.css">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+		<script src="../js/jquery-2.2.3.min.js"></script>
+		
+	</head>
+	<body style='background-color:#DDD'>
+		<div class='header'>
+			<div id='menuButton' class='menu-button closed'>
+				<i id='listMenuIcon' class="fa fa-bars active" style='position:absolute; top: 9px; left: 10px;'></i>
+				<i id='closeMenuIcon' class="fa fa-close closed" style='position:absolute; top: 6px; left: 10px; font-size: 1.2em'></i>
+			</div>
+			<div id='logoffButton' class='logoff'>
+				<i class='fa fa-power-off' style='color: #FFF;'></i>
+			</div>
+			<ul id='menuList' class='menu-list closed'>
+				<a href='#'><li><i class='fa fa-users menu-item-icon'></i><label>Usuários</label></li></a>
+				<a href='#'><li><i class='fa fa-building menu-item-icon'></i><label>Empresas</label></li></a>
+			</ul>
+		</div>
+		<div class='parent'>
+			<div class='panel' style='margin-right: 1em'>
+				<div class='search-div'>
+					<div>
+						<label class='label' id='idSearch' name='idSearch'>Id:</label>
+						<input class='search-key' type='text' id='idKey' name='idKey'/>
+						<button id='btnSearch' class='button' style='margin-right: 0.5em'><span>Search</span></button>
+						<button id='btnNew' class='button' hidden>New</button>
+					</div>
+				</div>
+				<form id='form' >
+					<div class='insert-div'>
+						<div hidden>
+							<label class='label'>Id:</label>
+							<input class='text' type='text' id='id' name='id' disabled />
+						</div>
+						<div class='textinput textarea'>
+							<label class='elem-label hidden'>Name</label>
+							<input class='text' type='text' id='name' name='name' required/>
+						</div>
+						<div class='textinput textarea'>
+							<label class='elem-label hidden'>Age</label>
+							<input class='text' type='text' id='age' name='age' required />
+						</div>
+						<div>
+							<label class='label'>Gender:</label>
+							<input type='radio' name='gender' id='male' value='Male'><label for='male'>Male</label>
+							<input type='radio' name='gender' id='female' value='Female'><label for='female'>Female</label>
+						</div>
+						<div class='button-div'>
+							<button id='btnDelete' class='button insert' hidden>Delete</button>
+							<button id='btnSave' class='button insert' style='margin-left: 0.5em'>Save</button>
+						</div>
+						
+					</div>
+					
+
+				</form>
+			</div>
+			<div class='panel' style='margin-left: 1em'>
+				<div class='search-div' style='height: 39.6px'>
+					<label class='label' id='nameSearch' name='nameSearch'>Name:</label>
+					<input class='search-key' type='text' id='nameKey' name='nameKey'/>
+				</div>
+				<div class='search-div all'>
+					<label class='list-title'>Users list</label>
+					<ul id='userList' class='user-list'>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+	<script src="../js/main.js"></script>
+	<script src="../js/ripple-effect.js"></script>
+</html>

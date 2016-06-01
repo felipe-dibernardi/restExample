@@ -1,0 +1,376 @@
+/* Label */
+
+.label {
+	transition: width 0.5s ease;
+	width: 30%;
+	display: inline-block;
+	text-align: right;
+}
+
+.elem-label {
+	color: #1F0099;
+	position: absolute;
+	display: block;
+	width: 100%;
+	top: 2px;
+}
+
+.elem-label.hidden {
+	transition: 0.2s;
+	font-size: 100%;
+	pointer-events: none;
+	height: 46px;
+	text-align: left;
+	overflow: hidden;
+	white-space: nowrap;
+	opacity: 0;
+}
+
+.elem-label::after {
+	transition: .8s;
+	transition-timing-function:cubic-bezier(.4,0,.2,1);
+	background-color: #1F0099;
+	height: 2px;
+	content: '';
+	width: 0px;
+	position: absolute;
+	bottom: 19px;
+	left: 45%;
+}
+
+.elem-label.active::after {
+	transition: .8s;
+	transition-timing-function:cubic-bezier(.4,0,.2,1);
+	height: 2px;
+	width: 100%;
+	bottom: 19px;
+	left: 0;
+}
+
+.elem-label.active {
+	transition: 0.2s;
+	transform: translateY(-18px);
+	font-size: 80%;
+	opacity: 1;
+	text-align: left;
+	height: 66px;
+	pointer-events: none;
+}
+
+.search-label {
+	width: 20%;
+	transition: width 0.5s ease;
+}
+
+/* Input */
+
+.search-key {
+	display: inline-block;
+	text-align: left;
+	margin-right: 2em;
+}
+
+#idKey {
+	width: 10%;
+}
+
+#nameKey {
+	width: 40%;
+}
+
+#nameKey, #nameSearch {
+	position:relative;
+	top: 7px;
+}
+
+/* Select */
+
+.gender-select {
+	width: 63.5%;
+}
+
+/* Div */
+
+.textarea {
+	position: relative;
+}
+
+.parent {
+	width: 750px;
+	margin: 0 auto;
+}
+
+.panel {
+	display: inline-block;
+	vertical-align: top;
+	width: 350px;
+}
+
+.insert-div {
+	position: relative;
+	top: 75px;
+	padding: 2em 0.5em;
+	width:350px; 
+	background-color: #ADD; 
+	border-radius: 5px;
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.search-div {
+	position: relative;
+	top: 75px;
+	margin-bottom: 1em;
+	padding: 1em 0.5em;
+	width:350px; 
+	background-color: #ADD; 
+	border-radius: 5px;
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.all {
+	text-align: center;
+}
+
+/* Button */
+
+.button-div {
+	text-align: right;
+	margin-right: 0.75em;
+	padding-bottom: 0.5em
+}
+
+.button {
+	background-color: #58C;
+	padding: 0.5em; 
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+	color: #FFF; 
+	font-family: sans-serif;
+	font-variant: small-caps;
+	font-size: 1.1em;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.insert {
+	margin-top: 1em;
+}
+
+.button:active {
+	box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+	background-color: #6AAAFF;
+	outline: none;
+}
+
+.button:hover {
+	background-color: #6AAAFF;
+}
+
+/* Element-divs */
+
+.textinput {
+	margin: 1.5em auto;
+	width: 200px;
+}
+
+.first-element-div {
+	padding-top: 0.75em;
+	padding-bottom: 0.5em;
+}
+
+.middle-element-div {
+	padding: 0.5em 0;
+}
+
+.last-element-div {
+	padding-top: 0.5em;
+	padding-bottom: 0.75em;
+}
+
+/* Spacer */
+
+.spacer {
+	display: inline-block;
+	width: 5px;
+}
+
+/* List */
+
+.list-title {
+	text-decoration: underline;
+}
+
+.user-list {
+}
+
+.user-list li {
+	margin-top: 0.5em;
+	list-style-type: none;
+	color:#222;
+	font-family: sans-serif;
+}
+
+.user-list li:first-of-type {
+	margin-top: 0.75em;
+}
+
+.user-list a {
+	text-decoration: none;
+	color: #444;
+}
+
+/* Header */
+
+.header {
+	width: 100%; 
+	height: 50px; 
+	background: #555;
+	box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+/****************** Menu ******************/
+
+/* Button */
+
+.menu-button {
+	display: inline-block;
+	width: 34px; 
+	height: 34px; 
+	border-radius: 17px; 
+	position: relative; top: 8px; 
+	margin-left: 1em;
+	z-index: 2;
+}
+
+.menu-button.closed {
+	transition: transform 0.7s ease, background-color 1s ease;
+	transform: rotateY(0deg) translateY(0);
+	background-color: #58C;
+	cursor: pointer;
+}
+
+.menu-button.active {
+	transition: transform 0.7s ease, background-color 1s ease;
+	transform: rotateY(180deg) translateY(22px);
+	background-color: #FF3123;
+	cursor: pointer;
+}
+
+.fa.active {
+	transition: opacity 0.7s ease;
+	color: #FFF;
+	opacity: 1;
+	
+}
+
+.fa.closed {
+	transition: opacity 0.7s ease;
+	opacity: 0;
+	
+}
+
+/* List */
+
+.menu-list {
+	position: absolute;
+	top: 55px;
+	left: 20px;
+	width: 150px;
+	background-color: #FFF;
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.menu-list.active {
+	transition: transform 0.7s ease;
+	transform: translateX(0) rotateY(0deg);
+}
+
+.menu-list.closed {
+	transition: transform 0.7s ease;
+	transform: translateX(-170px) rotateY(-155deg);
+}
+
+.menu-list li {
+	position: relative;
+	list-style-type: none;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.menu-list a {
+	text-decoration: none;
+	outline: 0;
+}
+
+.menu-list a label {
+	cursor: pointer;
+}
+
+.menu-list li:hover {
+	transition: background-color 0.5s ease;
+	background-color: #BAD0DD;
+}
+
+.menu-list li:hover i, .menu-list li:hover label {
+	color:#58C;
+}
+
+/* Item */
+
+.menu-item-icon {
+	color: #444; 
+	margin-right: 1em;
+}
+
+/***************** Log-off **********************/
+
+.logoff {
+	display: inline-block; 
+	width: 16px; 
+	height: 16px; 
+	float: right; 
+	position: relative; 
+	right: 20px; 
+	top: 17px; 
+	cursor: pointer;
+}
+
+.logoff:hover {
+	animation: shake 0.2s linear;
+}
+
+@keyframes shake {
+	25% {
+		transform: rotateZ(45deg);
+	}
+	50% {
+		transform: rotateZ(0deg);
+	}
+	75% {
+		transform: rotateZ(-45deg);
+	}
+	100% {
+		transform: rotateZ(0deg);
+	}
+}
+
+/************** Ripple Effect *******************/
+
+.ink {
+	display: block;
+	position: absolute;
+	background: hsl(180, 40%, 80%);
+	border-radius: 100%;
+	transform: scale(0);
+}
+
+.ink.animate {
+	animation: ripple 0.65s linear;
+}
+
+@keyframes ripple {
+	100% {
+		opacity: 0;
+		transform: scale(2.5);
+	}
+}

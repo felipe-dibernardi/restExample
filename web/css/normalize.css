@@ -1,0 +1,94 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+/* Input - text */
+
+input[type='text'] {
+	width: 100%;
+	display: inline-block;
+	padding: 6px 0px;
+	border-bottom: 1.5px solid #444;
+}
+
+input[type='text']:focus, input[type='text']:hover {
+	border-bottom: 1.5px solid #1F0099;
+	color: #007F7F;
+}
+
+[required] {
+	box-shadow: none;
+}
+
+/* Input - radio */
+
+input[type='radio'] {
+	position: relative; 
+	top: 3px;
+	margin-right: 2px;
+}
+
+input[type='radio']:checked {
+	background-color: #F00;
+}
+
+/* Label */
+
+label {
+	font-family: sans-serif;
+	color: #444;
+	font-variant: small-caps;
+}
+
+/* Select */
+
+select {
+	padding: 6px;
+	cursor: pointer;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-color: white;
+
+	background-image:
+		linear-gradient(45deg, transparent 50%, #FFF 50%),
+		linear-gradient(135deg, #FFF 50%, transparent 50%),
+		linear-gradient(to right, #58C, #58C);
+	background-position:
+		calc(100% - 18.5px) calc(1em + 0px),
+		calc(100% - 13px) calc(1em + 0px),
+		100% 0;
+	background-size:
+		5px 6px,
+		5px 6px,
+		2.5em 2.5em;
+	background-repeat: no-repeat;
+}
+
+select:active, select:hover {
+	cursor: pointer;
+	background-image:
+		linear-gradient(45deg, transparent 50%, #FFF 50%),
+		linear-gradient(135deg, #FFF 50%, transparent 50%),
+		linear-gradient(to right, #6AAAFF, #6AAAFF);
+	background-position:
+		calc(100% - 18.5px) calc(1em + 0px),
+		calc(100% - 13px) calc(1em + 0px),
+		100% 0;
+	background-size:
+		5px 6px,
+		5px 6px,
+		2.5em 2.5em;
+	background-repeat: no-repeat;
+	color: #007F7F;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}

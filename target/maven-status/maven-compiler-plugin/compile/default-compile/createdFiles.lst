@@ -1,0 +1,6 @@
+br/com/fdbst/restexample/ws/RESTConfig.class
+br/com/fdbst/restexample/entity/Usuario_.class
+br/com/fdbst/restexample/entity/Usuario.class
+br/com/fdbst/restexample/filter/CORSResponseFilter.class
+br/com/fdbst/restexample/service/UsuarioService.class
+br/com/fdbst/restexample/ws/UsuarioWS.class
