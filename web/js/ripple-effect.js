@@ -17,5 +17,5 @@ function ripple(element, e) {
 	x = e.pageX - element.offset().left - ink.width()/2;
 	y = e.pageY - element.offset().top - ink.height()/2;
 
-	ink.css({top: y+'px', left: x + 'px'}).addClass("animate");
+	ink.css({top: y+'px', left: x + 'px'}).addClass('animate');
 }

@@ -12,11 +12,16 @@
 	<body style='background-color:#DDD'>
 		<div class='header'>
 			<div id='menuButton' class='menu-button closed'>
-				<i id='listMenuIcon' class="fa fa-bars active" style='position:absolute; top: 9px; left: 10px;'></i>
-				<i id='closeMenuIcon' class="fa fa-close closed" style='position:absolute; top: 6px; left: 10px; font-size: 1.2em'></i>
+				<i id='listMenuIcon' class="fa fa-bars menu-icon active" style='position:absolute; top: 9px; left: 10px;'></i>
+				<i id='closeMenuIcon' class="fa fa-close menu-icon closed" style='position:absolute; top: 6px; left: 10px; font-size: 1.2em'></i>
 			</div>
-			<div id='logoffButton' class='logoff'>
-				<i class='fa fa-power-off' style='color: #FFF;'></i>
+			<div id='logoffButton' class='logoff header-button'>
+				<i class='fa fa-power-off'></i>
+			</div>
+			<div id='messageButton' class='message header-button'>
+				<i id='messageButtonIcon' class='fa fa-envelope message-icon active'></i>
+				<i id='alertButtonIcon' class='fa fa-bell alert-icon closed' style='color: #F00; position: relative; top: -20px;'></i>
+				<div id='messageCounter' class='message-counter active'><span style='color:#FFF; position:relative; left: 3px; top: 1px'>1</span></div>
 			</div>
 			<ul id='menuList' class='menu-list closed'>
 				<a href='#'><li><i class='fa fa-users menu-item-icon'></i><label>Usuários</label></li></a>
@@ -49,8 +54,8 @@
 						</div>
 						<div>
 							<label class='label'>Gender:</label>
-							<input type='radio' name='gender' id='male' value='Male'><label for='male'>Male</label>
-							<input type='radio' name='gender' id='female' value='Female'><label for='female'>Female</label>
+							<input type='radio' name='gender' id='male' value='Masculino'><label for='male'>Male</label>
+							<input type='radio' name='gender' id='female' value='Feminino'><label for='female'>Female</label>
 						</div>
 						<div class='button-div'>
 							<button id='btnDelete' class='button insert' hidden>Delete</button>

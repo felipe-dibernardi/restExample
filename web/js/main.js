@@ -5,10 +5,6 @@ $(document).ready(function() {
 	labelElements = $(document).find('.elem-label');
 	$(labelElements).each(function(index) {
 		textElement = $(this).parent().find('.text');
-		if (textElement.html()) {
-			console.log('Teste');
-		}
-		console.log($(this).html())
 		textElement.attr('placeholder', $(this).html());
 
 	})
@@ -19,6 +15,8 @@ $(document).ready(function() {
 		$(this).removeAttr('placeholder');
 	}
 });
+
+/* Função de abertura e fechamento do menu */
 
 $('#menuButton').click(function() {
 	var active = new RegExp('active')
@@ -44,6 +42,28 @@ $('#menuButton').click(function() {
 	
 })
 
+/* Função de alerta de nova mensagem no sistema */
+
+$('#messageButton').click(function() {
+	if ($('#messageButtonIcon').hasClass('animate')) {
+		$('#messageButtonIcon').replaceWith($('#messageButtonIcon').clone(true));
+	} else {
+		$('#messageButtonIcon').addClass('animate');
+	};
+	if ($('#alertButtonIcon').hasClass('animate')) {
+		$('#alertButtonIcon').replaceWith($('#alertButtonIcon').clone(true));
+	} else {
+		$('#alertButtonIcon').addClass('animate');
+	};
+	if ($('#messageCounter').hasClass('animate')) {
+		$('#messageCounter').replaceWith($('#messageCounter').clone(true));
+	} else {
+		$('#messageCounter').addClass('animate');
+	}
+})
+
+/* Funções para criar os placeholders e a barra nos input dinamicamente */
+
 $('.text').focus(function() {
 	element = $(this).parent().find('.elem-label');
 	element.removeClass('hidden');
@@ -61,22 +81,14 @@ $('.text').blur(function() {
 	
 })
 
+/* Funções que aplicam o Ripple-effect */
+
 $('.button').click(function(e) {
 	ripple($(this), e);
 });
 
 $('.menu-list a li').click(function(e) {
 	ripple($(this), e);
-});
-
-$('#btnSave').click(function() {
-	if($('#id').val()) {
-		update();
-	} else {
-		insert();
-	}
-	
-	return false;
 });
 
 $(document).on('click', '#userList a', function() {
@@ -87,6 +99,17 @@ $(document).on('click', '#userList a', function() {
 
 $('#nameKey').keyup(function() {
 	listByParams($('#nameKey').val());
+});
+
+/* Ações ao serem tomadas em clique de botões */
+
+$('#btnSave').click(function() {
+	if($('#id').val()) {
+		update();
+	} else {
+		insert();
+	}
+	return false;
 });
 
 $('#btnSearch').click(function() {
@@ -116,8 +139,9 @@ $('#btnDelete').click(function() {
 	return false;
 })
 
+/* Funções básicas do WebService */
+
 function listAll() {
-	console.log('Listando todos os usuários');
 	$.ajax({
 		type: 'GET',
 		url: rootURL,
@@ -129,7 +153,6 @@ function listAll() {
 }
 
 function listByParams(nome) {
-	console.log('Listando os usuários com nome: ' + nome);
 	$.ajax({
 		type: 'GET',
 		url: rootURL + '/filtro?nome=' + nome,
@@ -141,7 +164,6 @@ function listByParams(nome) {
 }
 
 function findById(id) {
-	console.log('Procurando usuário...');
 	$.ajax({
 		type: 'GET',
 		url: rootURL + '/' + id,
@@ -153,7 +175,6 @@ function findById(id) {
 }
 
 function insert() {
-	console.log('Adicionando usuário...');
 	$.ajax({
 		type: 'POST',
 		contentType: 'application/json',
@@ -171,7 +192,6 @@ function insert() {
 }
 
 function update() {
-	console.log('Atualizando usuário...');
 	$.ajax({
 		type: 'PUT',
 		contentType: 'application/json',
@@ -189,7 +209,6 @@ function update() {
 }
 
 function remove(id) {
-	console.log('Removendo usuário...');
 	$.ajax({
 		type: 'DELETE',
 		url: rootURL + '/' + id,
@@ -202,6 +221,8 @@ function remove(id) {
 		}
 	});
 }
+
+/* Funções auxiliares do WebService */
 
 function formToJSON() {
 	return JSON.stringify({
@@ -221,7 +242,6 @@ function renderDetails(usuario) {
 	} else {
 		$('#female').prop('checked', true);
 	}
-	$('#gender').val(usuario.sexo);
 }
 
 function renderList(data) {

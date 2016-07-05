@@ -6,7 +6,7 @@
 	1.2 Menu Button
 	1.3 Menu Itens
 	1.4 Menu Itens:hover
-	1.5 Botão logout
+	1.5 Botões de ações
 2.0 Containers
 	2.1 Default 
 		2.1.1 Label 
@@ -63,14 +63,14 @@
 		cursor: pointer;
 	}
 
-	.fa.active {
+	.menu-icon.active {
 		transition: opacity 0.7s ease;
 		color: #FFF;
 		opacity: 1;
 		
 	}
 
-	.fa.closed {
+	.menu-icon.closed {
 		transition: opacity 0.7s ease;
 		opacity: 0;
 		
@@ -127,8 +127,8 @@
 		color:#58C;
 	}
 
-	/* 1.5 Botão logout */
-	.logoff {
+	/* 1.5 Botões de ações */
+	.header-button {
 		display: inline-block; 
 		width: 16px; 
 		height: 16px; 
@@ -139,9 +139,47 @@
 		cursor: pointer;
 	}
 
+	.header-button i {
+		color: #FFF;
+	}
+
+	.message {
+		padding-right: 1em;
+	}
+
+	.message-icon.animate {
+		animation: fade-out 1.4s linear;
+	}
+
+	.alert-icon.animate {
+		animation: fade-in 1.4s linear, shake 0.2s linear 0.3s 3;
+	}
+
+	.alert-icon {
+		opacity: 0;
+	}
+
 	.logoff:hover {
 		animation: shake 0.2s linear;
 	}
+
+		/* 1.5.1 Contador de mensagem */
+
+		.message-counter {
+			background-color: #F00; 
+			width: 12px; 
+			height: 12px; 
+			border-radius: 6px; 
+			position: relative; 
+			bottom: 28px; 
+			left: 10px; 
+			font-size: 0.5em; 
+			color: #FFF;
+		}
+
+		.message-counter.animate {
+			animation: fade-out 1.4s linear;
+		}
 
 	.ink {
 		display: block;
@@ -382,22 +420,32 @@
 	}
 }
 
-/* Não encontrei esses elemnetos na pagina */
-.first-element-div {
-	padding-top: 0.75em;
-	padding-bottom: 0.5em;
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
-.middle-element-div {
-	padding: 0.5em 0;
-}
-
-.last-element-div {
-	padding-top: 0.5em;
-	padding-bottom: 0.75em;
-}
-
-.spacer {
-	display: inline-block;
-	width: 5px;
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
