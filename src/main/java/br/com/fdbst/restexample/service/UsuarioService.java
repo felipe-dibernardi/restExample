@@ -11,6 +11,7 @@ import javax.persistence.Query;
  * Classe que implementa as regras de negócio da entidade Usuário. 
  * @author Felipe Di Bernardi S Thiago
  */
+@SuppressWarnings("checkstyle:designforextension")
 @Stateless
 public class UsuarioService {
     

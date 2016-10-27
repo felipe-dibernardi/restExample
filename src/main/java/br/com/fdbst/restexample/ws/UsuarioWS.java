@@ -19,6 +19,7 @@ import javax.ws.rs.QueryParam;
  * Classe que implementa as funcionalidades de WebService para a Entidade Usuario.
  * @author Felipe Di Bernardi S Thiago
  */
+@SuppressWarnings("checkstyle:designforextension")
 @Stateless
 @Path("/usuario")
 public class UsuarioWS {
@@ -26,42 +27,71 @@ public class UsuarioWS {
     @EJB
     private UsuarioService usuarioService;
     
+    /**
+     * Lista todos os Usuarios do sistema.
+     * @return Lista de Usuarios.
+     */
     @GET
     @Produces("application/json")
     public List<Usuario> listAll() {
         return usuarioService.listAll();
     }
     
+    /**
+     * Recupera um Usuario do sistema através do Id.
+     * @param id Id do Usuario selecionado.
+     * @return Usuario selecionado.
+     */
     @Path("{id}")
     @GET
     @Produces("application/json")
-    public Usuario find(@PathParam("id") Integer id) {
+    public Usuario find(@PathParam("id") final Integer id) {
         return usuarioService.find(id);
     }
     
+    /**
+     * Lista os Usuarios do sistema atraves de parametros.
+     * @param nome Nome do Usuario.
+     * @return Lista de Usuarios.
+     */
     @GET
     @Path("/filtro")
     @Produces("application/json")
-    public List<Usuario> listByParams(@QueryParam("nome") String nome) {
+    public List<Usuario> listByParams(@QueryParam("nome") final String nome) {
         return usuarioService.listByParams(nome);
     }
     
+    /**
+     * Insere um Usuario o sistema.
+     * @param usuario Usuario a ser inserido.
+     * @return Usuario inserido.
+     */
     @POST
     @Consumes("application/json")
-    public Usuario insert(Usuario usuario) {
+    public Usuario insert(final Usuario usuario) {
         return usuarioService.insert(usuario);
     }
     
+    /**
+     * Atualiza um Usuario do sistema.
+     * @param usuario Usuario a ser atualizado.
+     * @return Usuario atualizado.
+     */
     @PUT
     @Consumes("application/json")
-    public Usuario update(Usuario usuario) {
+    public Usuario update(final Usuario usuario) {
         return usuarioService.update(usuario);
     }
     
+    /**
+     * Remove um Usuario do sistema através do Id.
+     * @param id Id do Usuario a ser removido.
+     * @return Usuario removido.
+     */
     @DELETE
     @Path("{id}")
     @Produces("application/json")
-    public Usuario remove(@PathParam("id") Integer id) {
+    public Usuario remove(@PathParam("id") final Integer id) {
         return usuarioService.remove(id);
     }
     

@@ -14,6 +14,7 @@ import javax.persistence.Table;
  * Classe que representa um Usuario no sistema.
  * @author Felipe Di Bernardi S Thiago
  */
+@SuppressWarnings("checkstyle:designforextension")
 @Entity
 @Table(name = "usuario")
 @NamedQueries(value = {
@@ -31,7 +32,7 @@ public class Usuario implements Serializable {
     private String sexo;
 
     /**
-     * Construtor padrão
+     * Construtor padrão.
      */
     public Usuario() {
     }
@@ -42,7 +43,7 @@ public class Usuario implements Serializable {
      * @param idade Idade do Usuario.
      * @param sexo Sexo do Usuario.
      */
-    public Usuario(String nome, Integer idade, String sexo) {
+    public Usuario(final String nome, final Integer idade, final String sexo) {
         this.nome = nome;
         this.idade = idade;
         this.sexo = sexo;
@@ -52,7 +53,7 @@ public class Usuario implements Serializable {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(final Integer id) {
         this.id = id;
     }
 
@@ -60,7 +61,7 @@ public class Usuario implements Serializable {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(final String nome) {
         this.nome = nome;
     }
 
@@ -68,7 +69,7 @@ public class Usuario implements Serializable {
         return idade;
     }
 
-    public void setIdade(Integer idade) {
+    public void setIdade(final Integer idade) {
         this.idade = idade;
     }
 
@@ -76,7 +77,7 @@ public class Usuario implements Serializable {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(final String sexo) {
         this.sexo = sexo;
     }
 
@@ -91,7 +92,7 @@ public class Usuario implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
