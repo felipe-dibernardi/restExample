@@ -9,7 +9,7 @@ import br.com.fdbst.restexample.entity.Usuario;
 import br.com.fdbst.restexample.service.UsuarioService;
 import javax.ejb.EJB;
 import javax.naming.NamingException;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
@@ -32,7 +32,7 @@ public class UsuarioServiceIT extends BaseEJBTester {
     public void find_first_user() {
     
         Usuario u = usuarioService.find(1);
-        assertNotNull(u);
+        assertEquals(u.getNome(), "Felipe");
         
     }
 }
