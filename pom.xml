@@ -80,11 +80,24 @@
         </profile>
         
         <profile>
-            <id>TestDev</id>
+            <id>DevUnit</id>
             <activation>
                 <property>
                     <name>profile</name>
-                    <value>testdev</value>
+                    <value>devunit</value>
+                </property>
+            </activation>
+            <properties>
+                <skip.tests>false</skip.tests>
+            </properties>
+        </profile>
+        
+        <profile>
+            <id>DevIntegration</id>
+            <activation>
+                <property>
+                    <name>profile</name>
+                    <value>devintegration</value>
                 </property>
             </activation>
             <properties>
@@ -219,11 +232,24 @@
         </profile>
         
         <profile>
-            <id>TestCI</id>
+            <id>CIUnit</id>
             <activation>
                 <property>
                     <name>profile</name>
-                    <value>testci</value>
+                    <value>ciunit</value>
+                </property>
+            </activation>
+            <properties>
+                <skip.tests>false</skip.tests>
+            </properties>
+        </profile>
+        
+        <profile>
+            <id>CIIntegration</id>
+            <activation>
+                <property>
+                    <name>profile</name>
+                    <value>ciintegration</value>
                 </property>
             </activation>
             <properties>
