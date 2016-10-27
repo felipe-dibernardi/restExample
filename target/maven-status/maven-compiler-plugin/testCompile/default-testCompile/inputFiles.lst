@@ -1,2 +1,3 @@
 /home/felipe/Estudos/restExample/src/test/java/br/com/fdbst/restexample/service/test/UsuarioServiceIT.java
+/home/felipe/Estudos/restExample/src/test/java/br/com/fdbst/restexample/entity/UsuarioTest.java
 /home/felipe/Estudos/restExample/src/test/java/br/com/fdbst/restexample/service/test/BaseEJBTester.java

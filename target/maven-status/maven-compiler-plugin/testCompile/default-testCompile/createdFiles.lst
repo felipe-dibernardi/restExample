@@ -1,2 +1,3 @@
 br/com/fdbst/restexample/service/test/UsuarioServiceIT.class
+br/com/fdbst/restexample/entity/UsuarioTest.class
 br/com/fdbst/restexample/service/test/BaseEJBTester.class
