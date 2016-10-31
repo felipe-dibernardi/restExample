@@ -18,7 +18,15 @@
         <glassfish.username>admin</glassfish.username>
         <glassfish.password>admin</glassfish.password>
         <glassfish.domain>/homolog</glassfish.domain>
+        <nexus.release.repo>http://localhost:8081/nexus/content/repositories/releases/</nexus.release.repo>
+        <nexus.snapshot.repo>http://localhost:8081/nexus/content/repositories/snapshots/</nexus.snapshot.repo>
+        <scm.url>scm:git:ssh://git@github.com/felipe-dibernardi/restExample.git</scm.url>
     </properties>
+    
+    <scm>
+        <connection>${scm.url}</connection>
+        <developerConnection>${scm.url}</developerConnection>
+    </scm>
     
     <dependencies>
         <dependency>
@@ -151,61 +159,6 @@
                             </execution>
                         </executions>-->
                     </plugin>
-<!--                    <plugin>
-                        <groupId>org.glassfish.embedded</groupId>
-                        <artifactId>maven-embedded-glassfish-plugin</artifactId>
-                        <version>4.1.1</version>
-                        <configuration>
-                            <goalPrefix>embedded-glassfish</goalPrefix>
-                            <app>target/${project.artifactId}-${project.version}.war</app>
-                            <port>8080</port>
-                            <name>${project.artifactId}</name>
-                            <configFile>domain.xml</configFile>
-                            <contextRoot>/</contextRoot>
-                            <autoDelete>true</autoDelete>
-                        </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.glassfish.main.common</groupId>
-                                <artifactId>simple-glassfish-api</artifactId>
-                                <version>4.0</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.glassfish.main.extras</groupId>
-                                <artifactId>glassfish-embedded-all</artifactId>
-                                <version>4.0</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>mysql</groupId>
-                                <artifactId>mysql-connector-java</artifactId>
-                                <version>5.1.24</version>
-                            </dependency> 
-                        </dependencies>
-                        <executions>
-                            <execution>
-                                <id>start-container</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>start</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>deploy-application</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>deploy</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>stop-container</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>undeploy</goal>
-                                    <goal>stop</goal>  
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>-->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
@@ -303,61 +256,6 @@
                             </execution>
                         </executions>-->
                     </plugin>
-<!--                    <plugin>
-                        <groupId>org.glassfish.embedded</groupId>
-                        <artifactId>maven-embedded-glassfish-plugin</artifactId>
-                        <version>4.1.1</version>
-                        <configuration>
-                            <goalPrefix>embedded-glassfish</goalPrefix>
-                            <app>target/${project.artifactId}-${project.version}.war</app>
-                            <port>8080</port>
-                            <name>${project.artifactId}</name>
-                            <configFile>domain.xml</configFile>
-                            <contextRoot>/</contextRoot>
-                            <autoDelete>true</autoDelete>
-                        </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.glassfish.main.common</groupId>
-                                <artifactId>simple-glassfish-api</artifactId>
-                                <version>4.0</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.glassfish.main.extras</groupId>
-                                <artifactId>glassfish-embedded-all</artifactId>
-                                <version>4.0</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>mysql</groupId>
-                                <artifactId>mysql-connector-java</artifactId>
-                                <version>5.1.24</version>
-                            </dependency> 
-                        </dependencies>
-                        <executions>
-                            <execution>
-                                <id>start-container</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>start</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>deploy-application</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>deploy</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>stop-container</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>undeploy</goal>
-                                    <goal>stop</goal>  
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>-->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
@@ -552,5 +450,18 @@
             </resource>
         </resources> 
     </build>
+    
+    <distributionManagement>
+        <repository>
+            <id>deployment</id>
+            <name>Releases</name>
+            <url>${nexus.release.repo}</url>
+        </repository>
+        <snapshotRepository>
+            <id>deployment</id>
+            <name>Snapshots</name>
+            <url>${nexus.snapshot.repo}</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
