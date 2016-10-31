@@ -13,7 +13,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <surefire.version>2.19.1</surefire.version>
-        <glassfish.host>10.8.30.4</glassfish.host>
+        <glassfish.host>localhost</glassfish.host>
         <glassfish.port>50447</glassfish.port>
         <glassfish.username>admin</glassfish.username>
         <glassfish.password>admin</glassfish.password>
