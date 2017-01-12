@@ -16,10 +16,10 @@
         <glassfish.host>localhost</glassfish.host>
         <glassfish.port>50447</glassfish.port>
         <glassfish.username>admin</glassfish.username>
-        <glassfish.password>admin</glassfish.password>
+        <glassfish.password>homologacao</glassfish.password>
         <glassfish.domain>/homolog</glassfish.domain>
-        <nexus.release.repo>http://localhost:8081/nexus/content/repositories/releases/</nexus.release.repo>
-        <nexus.snapshot.repo>http://localhost:8081/nexus/content/repositories/snapshots/</nexus.snapshot.repo>
+        <nexus.release.repo>http://172.16.0.2:8081/nexus/content/repositories/releases/</nexus.release.repo>
+        <nexus.snapshot.repo>http://172.16.0.2:8081/nexus/content/repositories/snapshots/</nexus.snapshot.repo>
         <scm.url>scm:git:ssh://git@github.com/felipe-dibernardi/restExample.git</scm.url>
     </properties>
     
@@ -213,7 +213,7 @@
             <properties>
                 <skip.tests>false</skip.tests>
                 <glassfish.embedded-static-shell.jar>
-                    /var/lib/hudson/glassfish4/glassfish/lib/embedded/glassfish-embedded-static-shell.jar
+                    /root/.jenkins/glassfish/glassfish/lib/embedded/glassfish-embedded-static-shell.jar
                 </glassfish.embedded-static-shell.jar>
             </properties>
             <dependencies>
