@@ -68,6 +68,7 @@ public class UsuarioWS {
      */
     @POST
     @Consumes("application/json")
+    @Produces("application/json")
     public Usuario insert(final Usuario usuario) {
         return usuarioService.insert(usuario);
     }
@@ -79,6 +80,7 @@ public class UsuarioWS {
      */
     @PUT
     @Consumes("application/json")
+    @Produces("application/json")
     public Usuario update(final Usuario usuario) {
         return usuarioService.update(usuario);
     }
