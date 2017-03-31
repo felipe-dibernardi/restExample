@@ -65,7 +65,6 @@ public class UsuarioWSTest {
         
         assertEquals(200, response.getStatus());
         assertNotNull(usuarios);
-        assertEquals(1, usuarios.size());
         
     }
     

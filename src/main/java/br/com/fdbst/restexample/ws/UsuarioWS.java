@@ -2,6 +2,9 @@ package br.com.fdbst.restexample.ws;
 
 import br.com.fdbst.restexample.entity.Usuario;
 import br.com.fdbst.restexample.service.UsuarioService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -20,6 +23,7 @@ import javax.ws.rs.QueryParam;
  * @author Felipe Di Bernardi S Thiago
  */
 @SuppressWarnings("checkstyle:designforextension")
+@Api
 @Stateless
 @Path("/usuario")
 public class UsuarioWS {
@@ -66,6 +70,11 @@ public class UsuarioWS {
      * @param usuario Usuario a ser inserido.
      * @return Usuario inserido.
      */
+    @ApiResponses(
+        @ApiResponse(
+            code = 200,
+            message = "Usuario inserido com sucesso.",
+            response = Usuario.class))
     @POST
     @Consumes("application/json")
     @Produces("application/json")
@@ -78,6 +87,11 @@ public class UsuarioWS {
      * @param usuario Usuario a ser atualizado.
      * @return Usuario atualizado.
      */
+    @ApiResponses(
+        @ApiResponse(
+            code = 200,
+            message = "Usuario atualizado com sucesso.",
+            response = Usuario.class))
     @PUT
     @Consumes("application/json")
     @Produces("application/json")
@@ -90,6 +104,11 @@ public class UsuarioWS {
      * @param id Id do Usuario a ser removido.
      * @return Usuario removido.
      */
+    @ApiResponses(
+        @ApiResponse(
+            code = 200,
+            message = "Usuario removido com sucesso.",
+            response = Usuario.class))
     @DELETE
     @Path("{id}")
     @Produces("application/json")
