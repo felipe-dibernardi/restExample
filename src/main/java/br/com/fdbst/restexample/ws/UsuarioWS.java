@@ -3,6 +3,8 @@ package br.com.fdbst.restexample.ws;
 import br.com.fdbst.restexample.entity.Usuario;
 import br.com.fdbst.restexample.service.UsuarioService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import java.util.List;
@@ -35,6 +37,11 @@ public class UsuarioWS {
      * Lista todos os Usuarios do sistema.
      * @return Lista de Usuarios.
      */
+    @ApiResponses(
+        @ApiResponse(
+            code = 200,
+            message = "Usuários listados com sucesso."))
+    @ApiOperation(value = "Lista todos os Usuários do sistema", httpMethod = "GET")
     @GET
     @Produces("application/json")
     public List<Usuario> listAll() {
@@ -46,10 +53,17 @@ public class UsuarioWS {
      * @param id Id do Usuario selecionado.
      * @return Usuario selecionado.
      */
+    @ApiResponses(
+        @ApiResponse(
+            code = 200,
+            message = "Usuário buscado com sucesso.",
+            response = Usuario.class))
+    @ApiOperation(value = "Busca um Usuário específico no sistema através de seu id", httpMethod = "GET", 
+            response = Usuario.class)
     @Path("{id}")
     @GET
     @Produces("application/json")
-    public Usuario find(@PathParam("id") final Integer id) {
+    public Usuario find(@ApiParam(value = "Id do Usuário", required = true)@PathParam("id") final Integer id) {
         return usuarioService.find(id);
     }
     
@@ -58,10 +72,16 @@ public class UsuarioWS {
      * @param nome Nome do Usuario.
      * @return Lista de Usuarios.
      */
+    @ApiResponses(
+        @ApiResponse(
+            code = 200,
+            message = "Usuários listados com sucesso."))
+    @ApiOperation(value = "Lista Usuários do sistema através de parâmetros", httpMethod = "GET")
     @GET
     @Path("/filtro")
     @Produces("application/json")
-    public List<Usuario> listByParams(@QueryParam("nome") final String nome) {
+    public List<Usuario> listByParams(
+            @ApiParam(value = "Nome dos Usuários", required = true) @QueryParam("nome") final String nome) {
         return usuarioService.listByParams(nome);
     }
     
@@ -73,8 +93,9 @@ public class UsuarioWS {
     @ApiResponses(
         @ApiResponse(
             code = 200,
-            message = "Usuario inserido com sucesso.",
+            message = "Usuário inserido com sucesso.",
             response = Usuario.class))
+    @ApiOperation(value = "Insere um Usuário no sistema", httpMethod = "POST", response = Usuario.class)
     @POST
     @Consumes("application/json")
     @Produces("application/json")
@@ -90,8 +111,9 @@ public class UsuarioWS {
     @ApiResponses(
         @ApiResponse(
             code = 200,
-            message = "Usuario atualizado com sucesso.",
+            message = "Usuário atualizado com sucesso",
             response = Usuario.class))
+    @ApiOperation(value = "Atualiza um Usuário no sistema", httpMethod = "PUT", response = Usuario.class)
     @PUT
     @Consumes("application/json")
     @Produces("application/json")
@@ -109,10 +131,12 @@ public class UsuarioWS {
             code = 200,
             message = "Usuario removido com sucesso.",
             response = Usuario.class))
+    @ApiOperation(value = "Remove um Usuário do sistema atraves do Id", httpMethod = "DELETE", response = Usuario.class)
     @DELETE
     @Path("{id}")
     @Produces("application/json")
-    public Usuario remove(@PathParam("id") final Integer id) {
+    public Usuario remove(
+            @ApiParam(value = "Id do Usuário no sistema", required = true) @PathParam("id") final Integer id) {
         return usuarioService.remove(id);
     }
     

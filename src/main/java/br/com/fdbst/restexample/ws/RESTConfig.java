@@ -38,7 +38,6 @@ public class RESTConfig extends Application {
         Set<Class<?>> resources = new HashSet<>();
         resources.add(UsuarioWS.class);
 
-        //classes do swagger...
         resources.add(ApiListingResource.class);
         resources.add(SwaggerSerializers.class);
         return resources;

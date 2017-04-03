@@ -41,11 +41,21 @@
     </dependencyManagement>
     
     <dependencies>
+        <!-- Swagger Dependencies -->
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-jersey2-jaxrs</artifactId>
             <version>1.5.13</version>
         </dependency>
+        
+        <!-- Flyway Dependencies -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>3.0</version>
+        </dependency>
+        
+        <!-- EclipseLink Dependencies -->
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
@@ -59,6 +69,7 @@
             <scope>provided</scope>
         </dependency>
         
+        <!-- JavaEE Dependencies -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -70,6 +81,8 @@
             <artifactId>json</artifactId>
             <version>20140107</version>
         </dependency>
+        
+        <!-- Jersey Dependencies -->
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
@@ -86,6 +99,7 @@
             <version>2.25</version>
         </dependency>
         
+        <!-- Arquillian & JUnit Dependencies -->
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
@@ -147,6 +161,8 @@
             </properties>
             
             <dependencies>
+                
+                <!-- Embbeded Payara (Glassfish) container & MySQL connector Dependencies -->
                 <dependency>
                     <groupId>mysql</groupId>
                     <artifactId>mysql-connector-java</artifactId>
@@ -169,6 +185,8 @@
             </dependencies>
             <build>
                 <plugins>
+                    
+                    <!-- Cobertura Plugin -->
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>cobertura-maven-plugin</artifactId>
@@ -204,6 +222,7 @@
             </properties>
             <build>
                 <plugins>
+                    <!-- Maven Source Plugin - Attach source code to deployment -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -217,6 +236,8 @@
                             </execution>
                         </executions>
                     </plugin>
+                    
+                    <!-- Maven Javadoc Plugin - Attach Javadoc to deployment -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
@@ -262,6 +283,8 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+            
+            <!-- Surefire Plugin - Unit testing plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -270,6 +293,8 @@
                     <skipTests>${skip.tests}</skipTests>
                 </configuration>
             </plugin>
+            
+            <!-- Checkstyle Plugin - Code syntaxis plugin with custom set of rules <configLocation> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -278,6 +303,31 @@
                     <configLocation>checkstyle.xml</configLocation>
                 </configuration>
             </plugin>
+            
+            <!-- Flyway Plugin - Database Migration and version control -->
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <sqlMigrationSeparator>__</sqlMigrationSeparator>
+                    <locations>
+                        <location>filesystem:src/main/resources/db/migrations</location>
+                    </locations>
+                    <url>jdbc:mysql://localhost:3306/restexample</url>
+                    <user>root</user>
+                    <password>root</password>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>5.1.35</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            
+            <!-- Cargo Plugin - Remote deployment plugin -->
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
