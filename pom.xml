@@ -145,6 +145,8 @@
             </activation>
             <properties>
                 <skip.tests>true</skip.tests>
+                <flyway.db.user>root</flyway.db.user>
+                <flyway.db.password>root</flyway.db.password>
             </properties>
         </profile>
         
@@ -158,6 +160,8 @@
             </activation>
             <properties>
                 <skip.tests>false</skip.tests>
+                <flyway.db.user>root</flyway.db.user>
+                <flyway.db.password>root</flyway.db.password>
             </properties>
             
             <dependencies>
@@ -259,6 +263,20 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>Deployment-Homologation</id>
+            <activation>
+                <property>
+                    <name>profile</name>
+                    <value>deploy-homolog</value>
+                </property>
+            </activation>
+            <properties>
+                <skip.tests>true</skip.tests>
+                <flyway.db.user>root</flyway.db.user>
+                <flyway.db.password>root</flyway.db.password>
+            </properties>
+        </profile>
     </profiles>    
                             
     <build>
@@ -315,8 +333,8 @@
                         <location>filesystem:src/main/resources/db/migrations</location>
                     </locations>
                     <url>jdbc:mysql://localhost:3306/restexample</url>
-                    <user>root</user>
-                    <password>root</password>
+                    <user>${flyway.db.user}</user>
+                    <password>${flyway.db.password}</password>
                 </configuration>
                 <dependencies>
                     <dependency>
